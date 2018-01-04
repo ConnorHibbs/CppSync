@@ -1,0 +1,10 @@
+Complete the assignment described in the attached pdf file.  You should include a makefile which will cleanly
+build your code with -Wall.
+
+When finished, push your code to the github classroom repository and indicate in Blackboard the name of your repository.
+
+There are no questions to answer on this particular assignment.  Rather, you are to implement a solution to this problem.
+
+Make sure your code is properly commented and compiles cleanly.  It also should have all appropriate synchronization constructs included.
+
+
