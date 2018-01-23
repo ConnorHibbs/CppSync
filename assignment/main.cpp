@@ -1,19 +1,46 @@
 #include <iostream>
 #include <thread>
+#include <cmath>
+//#include <random>
+#include <queue>
+#include <mutex>
 
 using namespace std;
+
+typedef enum OP {PLUS, MINUS, MULTIPLY, DIVIDE};
 
 typedef struct Equation {
     int a;
     int b;
-    char op;
+    OP op;
 };
 
-void producer_thread() {
+queue pool;
 
+mutex created_lock, consumed_lock;
+
+int operations_created = 0;
+int operations_consumed = 0;
+
+void producer_thread() {
+    int created = 0;
+
+    while(true) {
+        int a = rand();
+        int b = rand();
+        OP op = (OP) rand() % 4;
+
+        Equation eq = Equation{a, b, op};
+
+
+        created_lock.lock();
+        created++;
+        operations_created++;
+        created_lock.unlock();
+    }
 }
 
-void consumer_thread() {
+void consumer_thread(Equation* eq) {
 
 }
 
@@ -38,7 +65,7 @@ int main(int argc, char* argv[]) {
     int num_producers = atoi(argv[3]);
     int num_consumers = atoi(argv[4]);
 
-
+    pool = queue(queue_size);
 
 
 
