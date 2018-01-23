@@ -9,9 +9,9 @@
 
 using namespace std;
 
-typedef enum OP {PLUS, MINUS, MULTIPLY, DIVIDE};
+enum OP {PLUS, MINUS, MULTIPLY, DIVIDE};
 
-typedef struct Equation {
+struct Equation {
     int a;
     int b;
     OP op;
